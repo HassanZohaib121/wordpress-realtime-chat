@@ -1,0 +1,338 @@
+/**
+ * Public styles for Live Support Chat
+ */
+
+/* Chat Widget */
+.live-support-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Chat Button */
+.live-support-button {
+  background-color: #2271b1;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.live-support-button:hover {
+  background-color: #135e96;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.live-support-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.live-support-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Popup Chat Window */
+.live-support-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 320px;
+  height: 400px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.live-support-popup.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Chat Header */
+.live-support-header {
+  background-color: #2271b1;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.live-support-header h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.live-support-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.live-support-close:hover {
+  opacity: 1;
+}
+
+/* Chat Body */
+.live-support-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Messages Area */
+.live-support-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message Bubbles */
+.live-support-message {
+  margin-bottom: 12px;
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  position: relative;
+  clear: both;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+.live-support-message.user {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.live-support-message.agent {
+  background-color: #fff;
+  color: #333;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.live-support-message.system {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #666;
+  text-align: center;
+  margin: 10px auto;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 12px;
+  max-width: 90%;
+  box-shadow: none;
+}
+
+.live-support-message-time {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 4px;
+  display: block;
+  text-align: right;
+}
+
+/* Typing Indicator */
+.live-support-typing-indicator {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #999;
+  border-radius: 50%;
+  animation: typing-animation 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing-animation {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* Start Form */
+.live-support-start-form {
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.live-support-form-group {
+  margin-bottom: 16px;
+}
+
+.live-support-form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.live-support-form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+.live-support-form-group input:focus {
+  border-color: #2271b1;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34, 113, 177, 0.2);
+}
+
+.live-support-start-chat {
+  background-color: #2271b1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.live-support-start-chat:hover {
+  background-color: #135e96;
+}
+
+/* Chat Form */
+.live-support-chat-form {
+  display: flex;
+  margin-top: auto;
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#live-support-message {
+  flex: 1;
+  border: none;
+  padding: 8px 12px;
+  resize: none;
+  height: 40px;
+  max-height: 120px;
+  font-size: 14px;
+  background: transparent;
+  outline: none;
+}
+
+.live-support-send {
+  background-color: #2271b1;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.live-support-send:hover {
+  background-color: #135e96;
+}
+
+.live-support-send svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .live-support-popup {
+    width: calc(100% - 40px);
+    height: 60vh;
+    bottom: 80px;
+  }
+
+  .live-support-button-text {
+    display: none;
+  }
+
+  .live-support-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  .live-support-message {
+    max-width: 90%;
+  }
+}
+
