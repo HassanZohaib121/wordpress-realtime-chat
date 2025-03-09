@@ -24,7 +24,10 @@ This WordPress plugin enables real-time customer support using a WebSocket-based
 3. Enable or disable chat history logging.  
 
 ## **3. Add Widget to Your Website**  
-Use [live_chat] shortcode to add the chat widget to your Page.
+Use shortcode to add the chat widget to your Page.
+```sh
+[live_chat] 
+```
 
 ---
 
